@@ -106,14 +106,16 @@
   }
 
 .imagebox {
-    height: 100px;
-    background-color: blue;
-    margin-top: 2rem;
+    height: 120px;
+    margin-left: -50px;
+    margin-right: -50px;
+    background-color: yellow;
+    background-image: url('../images/field.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
-#imagefield{
-    height:100px;
-    width:130rem;
-}
+
 
 
 .container-fluidoo {
@@ -122,12 +124,42 @@
     
 }
 
-#imagebox{
+.profile-icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
 
-        position: relative;
-        min-height: 1px;
-        padding-right: 0px;
-        padding-left: 0px;
-   
+.form-content{
+    width: 50%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.form-label{
+    font-size: 16px;
+}
+
+.add-form-input{
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid  #b1b1b1;
+}
+
+.add-form-textarea{
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid  #b1b1b1;
+}
+.single-input{
+    margin-top: 10px;
+}
+.submit-button{
+    background-color: #adb44c;
+}
+.form-heading{
+    margin-top: 50px;
 }
 
