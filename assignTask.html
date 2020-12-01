@@ -94,7 +94,7 @@
 
                </div>
                 <div class="col-md-2">
-                   <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign">ASSIG TASK</button></div> 
+                   <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign" data-toggle="modal" data-target="#myModal">ASSIGN TASK</button></div> 
                    <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign">FLIGHT CHECKLIST</button></div>
                    <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign">DOCUMENTATION</button></div>
                    <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign">RISK ANALYSIS</button></div>
@@ -102,11 +102,25 @@
                    <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign">BUDGET</button></div>
                 </div>
             </div>
-        </div>
-    
-               
-              
 
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Assign task</h4>
+                    </div>
+                    <div class="modal-body">
+                      
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
 
         <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
