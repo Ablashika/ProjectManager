@@ -313,3 +313,22 @@
   border: 1px solid rgb(214, 213, 213);
   padding: 0.5rem 1rem;
 }
+
+ .boxbox{
+  margin-top: 50px;
+  width: 80%;
+  border: 1px solid #b1b1b1;
+  height: 200px;
+  border-radius: 20px;
+  margin-left: 5rem;
+}
+
+.reportBox{
+  margin-top:10rem;
+  margin-right:10rem;
+}
+
+.hero-bg {
+  height: 100vh;
+  background: url("../images/drone_back.jfif") center no-repeat;
+}
