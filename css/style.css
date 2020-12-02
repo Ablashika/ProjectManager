@@ -221,6 +221,7 @@
 
 .assignButton{
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .space{
@@ -249,6 +250,7 @@
     user-select: none;
     width: 20rem;
     background-color: #adb44c;
+    color: white;
 }
 
 .taskDescription {
@@ -303,6 +305,12 @@
   height: 30vh;
 }
 
+.header-text {
+  padding-top: 5rem;
+  padding-left: 4rem;
+  color: white;
+}
+
 .board-box {
   background-color: #eee;
   padding: 16px;
@@ -331,4 +339,8 @@
 .hero-bg {
   height: 100vh;
   background: url("../images/drone_back.jfif") center no-repeat;
+}
+
+.btn .mdi {
+  color: white;
 }
