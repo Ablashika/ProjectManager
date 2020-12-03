@@ -36,7 +36,7 @@
                     </button>
 
                     <a class="navbar-brand nav-image" href="#">
-                        <img alt="Brand" src="images/stkstk.png " class="img-responsive" height="30" width="60">
+                        <img alt="Brand" src="images/stkstk.png " class="img-responsive" style="height: 30px;">
                     </a>
 
                 </div>
@@ -99,7 +99,7 @@
                    <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign" data-toggle="modal" data-target="#dueDate">DUE DATE</button></div>
                    <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign" data-toggle="modal" data-target="#budget">BUDGET</button></div>
 
-                   <button class="btn btn-black">Save</button>
+                   <button class="btn btn-black" onclick="add(event)">Save</button>
                 </div>
             </div>
 
@@ -144,7 +144,7 @@
                           <input type="checkbox" name="flight_che"> The client has confirmed the time and availability
                         </label>
                       </div>
-                    </div>
+                    </div> 
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
@@ -236,9 +236,6 @@
 
             function add(event) {
                 event.preventDefault();
-                var e = document.getElementById("proj_type");
-                var value = e.options[e.selectedIndex].value;
-                var projType = e.options[e.selectedIndex].text;
 
                 db.collection('tasks')
                     .add({
