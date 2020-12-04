@@ -81,26 +81,24 @@
             <div class="col-md-4">
                 <div class="board-box">
                     <h3 class="text-center">To Do</h3>
-                    <div id="task_title"></div>
+                    <div id="todoTask">
+
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="board-box">
                     <h3 class="text-center">In progress</h3>
-                    <div class="task-card">
-                        <h4>Task title</h4>
-                        <hr>
-                        <p>task description</p>
+                    <div id="inProgressTask">
+                        
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="board-box">
                     <h3 class="text-center">Done</h3>
-                    <div class="task-card">
-                        <h4>Task title</h4>
-                        <hr>
-                        <p>task description</p>
+                    <div id="doneTask">
+                        
                     </div>
                 </div>
             </div>
@@ -135,21 +133,30 @@
             var db = firebase.firestore();
 
             const getTasks = () => {
-                var taskTitle = document.getElementById("task_title")
+                var todoTask = document.getElementById("todoTask")
+                var inProgressTask = document.getElementById("inProgressTask")
+                var doneTask = document.getElementById("doneTask")
                 db.collection("tasks").get().then((querySnapshot) => {
-                    taskTitle.innerHTML = ''
+                    todoTask.innerHTML = ''
+                    inProgressTask.innerHTML = ''
+                    doneTask.innerHTML = ''
 
                     querySnapshot.forEach((doc) => {
                         let data = doc.data();
-                        
-                        let task_title = `
+                        let whereToAddTask = todoTask;
+                        if(data.status=='In-Progress'){
+                            whereToAddTask = inProgressTask;
+                        }else if(data.status=='Completed'){
+                            whereToAddTask = doneTask;
+                        }
+                        let row = `
                         <div class="task-card" style="margin: 5px 0px;">
                         <h4 id="task_title">${data.title}</h4>
                         <hr>
                         <p id="task_desc">${data.taskDescription}</p>
                         </div>
                         `
-                        taskTitle.innerHTML = taskTitle.innerHTML + task_title
+                        whereToAddTask.innerHTML = whereToAddTask.innerHTML + row
                     })
                 })
             }

@@ -70,6 +70,7 @@
                 <div class="row">
                     <ol class="breadcrumb">
                         <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="assignTask.html">Assign Task</a></li>
                         <li class="active">Task Details</li>
                     </ol>
                 </div>
@@ -142,7 +143,7 @@
                         riskAnalysis: "",
                         dueDate: "",
                         budget: "",
-                        status: "",
+                        status: "Todo",
                         assignedTo: "",
                         progress: Math.floor((Math.random() * 100) + 10),
                         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -165,18 +166,41 @@
                         // console.log(`${doc.id} => ${doc.data().projectName}`);
                         let data = doc.data();
                         console.log(data);
+                        let progress = data.progress;
+                        if(data.status=='Completed'){
+                            progress = 100;
+                        }
                         let newRow = `
                     <tr>
                             <td><a href="assignTask.html?id=${doc.id}">${data.title}</a></td>
                             <td>${data.assignedTo ? data.assignedTo : 'N/A'}</td>
                             <td>
                                 <div class="progress" style="width: 70px;">
-                                    <div class="progress-bar" role="progressbar" style="width: ${data.progress}%;" aria-valuenow="${data.progress}"
-                                        aria-valuemin="0" aria-valuemax="100">${data.progress}%</div>
+                                    <div class="progress-bar" role="progressbar" style="width: ${progress}%;" aria-valuenow="${progress}"
+                                        aria-valuemin="0" aria-valuemax="100">${progress}%</div>
                                 </div>
                             </td>
                             <td>3${getFormattedDate(data.timestamp)}</td>
-                            <td>${data.status ? data.status : 'N/A'}</td>
+                            <td>
+                                <form  style="width:300px;" onsubmit="updateTask(event, '${doc.id}')">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        ${data.status ? data.status : 'N/A'}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select name="status" class="form-control">
+                                            <option>--SELECT--</option>
+                                            <option>Todo</option>
+                                            <option>In-Progress</option>
+                                            <option>Completed</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="submit">Update</button>
+                                    </div>
+                                </div>
+                                </form>
+                            </td>
 
                         </tr>
                     `
@@ -184,6 +208,22 @@
                     });
 
                 });
+            }
+
+            function updateTask(event,id) {
+                event.preventDefault();
+
+                db.collection('tasks').doc(id)
+                    .update({
+                        status: event.target.status.value
+                    })
+                    .then(function (docRef) {
+                        // console.log('Document written with ID: ', docRef.id);
+                        window.location = window.location
+                    })
+                    .catch(function (error) {
+                        console.error('Error adding document: ', error);
+                    });
             }
             getAllTasks()
 
