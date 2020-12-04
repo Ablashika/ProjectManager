@@ -76,6 +76,13 @@
 
   <div class="container">
     <div class="row">
+      <ol class="breadcrumb">
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="taskDetails.html">Task Details</a></li>
+          <li class="active">Assign Tasks</li>
+      </ol>
+  </div>
+    <div class="row">
       <div class="col-md-6">
         <form action="" class="" onsubmit="editTask(event)">
           <label for="title" class="text-right ">TASK DESCRIPTION</label>
@@ -86,7 +93,7 @@
 
       </div>
       <div class="col-md-2">
-        <div class="assignButton"><a href="assignMembers.html" type="button"
+        <div class="assignButton"><a href="" id="task-link" type="button"
             class="btn btn-secondary btn-lg assign">ASSIGN TASK</a></div>
         <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign" data-toggle="modal"
             data-target="#flightChecklist">FLIGHT CHECKLIST</button></div>
@@ -233,12 +240,14 @@
         })
         .then(function (docRef) {
           console.log('Document updated');
-          window.location = "projectDetails.html"
+          window.location = "taskDetails.html"
         })
         .catch(function (error) {
           console.error('Error adding document: ', error);
         });
     }
+
+    $("#task-link").attr("href", "assignMembers.html?id="+taskId)
 
   </script>
 </body>

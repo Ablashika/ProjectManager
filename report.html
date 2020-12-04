@@ -4,22 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Report</title>
     <link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/circular-progress.css'>
 </head>
 
 <body>
-
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Project Detials</title>
-    </head>
 
     <body>
 
@@ -53,10 +44,6 @@
                                 <li><a href="#">Dutch</a></li>
                                 <li><a href="#">Spanish</a></li>
                                 <li><a href="#">French</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
                             </ul>
                         </li>
                         <li>
@@ -66,84 +53,93 @@
 
                     <form class="navbar-form navbar-right" action="/action_page.php">
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search">
-                          <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit">
-                              <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                          </div>
+                            <input type="text" class="form-control" placeholder="Search">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </div>
                         </div>
-                      </form>
+                    </form>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
 
-
-        <div class="reportBox">
-            <h4>REPORT</h4>
-        </div>
-
-         <div class="container">       
-                            <div class="col-md-6">
-                                <div class="project-overview-box  boxbox">
-                                    <p class="project-overview-title ">TOTAL NUMBER OF PROJECT</p>
-
-                                    <div class="project-overview-body">
-                                        <p class="text-center overview-body-text">38</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-overview-box boxbox">
-                                    <p class="project-overview-title">CONMPLETED PRORCT</p>
-
-                                    <div class="project-overview-body">
-                                        <p class="text-center overview-body-text">14</p>
-                                    </div>
-                                </div>
-                            </div>     
-        </div>
-
-                        <div class="container">       
-                            <div class="col-md-6">
-                                <div class="project-overview-box  boxbox">
-                                    <p class="project-overview-title">BUDGET</p>
-
-                                    <div class="project-overview-body">
-                                            <div class="progress" data-percentage="20">
-                                                <span class="progress-left">
-                                                    <span class="progress-bar"></span>
-                                                </span>
-                                                <span class="progress-right">
-                                                    <span class="progress-bar"></span>
-                                                </span>
-                                                <div class="progress-value">
-                                                    <div>
-                                                        20%<br>
-                                                        <span>Used</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">Total Budget: $200,433</div>
-                                                <div class="col-md-6">Amount Used: $70,000</div>
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-overview-box  boxbox">
-                                    <p class="project-overview-title">ONGOING PROJECT</p>
-
-                                    <div class="project-overview-body">
-                                        <p class="text-center overview-body-text">6</p>
-                                </div>
-                            </div>
-                            
-                        </div>
-
+        <div class="container">
+            <div class="row" style="margin-top: 5rem;">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li class="active">Report</li>
+                </ol>
+            </div>
+            <div class="row">
+                <div class="reportBox">
+                    <h4>REPORT</h4>
                 </div>
             </div>
+        </div>
+
+        <div class="container">
+            <div class="col-md-6">
+                <div class="project-overview-box  boxbox">
+                    <p class="project-overview-title ">TOTAL NUMBER OF PROJECTS</p>
+
+                    <div class="project-overview-body">
+                        <p class="text-center overview-body-text">38</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="project-overview-box boxbox">
+                    <p class="project-overview-title">TOTAL PROJECTS COMPLETED</p>
+
+                    <div class="project-overview-body">
+                        <p class="text-center overview-body-text">14</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="col-md-6">
+                <div class="project-overview-box  boxbox">
+                    <p class="project-overview-title">TOTAL BUDGET</p>
+
+                    <div class="project-overview-body">
+                        <div class="progress" data-percentage="20">
+                            <span class="progress-left">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <span class="progress-right">
+                                <span class="progress-bar"></span>
+                            </span>
+                            <div class="progress-value">
+                                <div>
+                                    20%<br>
+                                    <span>Used</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">Total Budget: $200,433</div>
+                            <div class="col-md-6">Total Amount Used: $70,000</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="project-overview-box  boxbox">
+                    <p class="project-overview-title">TOTAL ONGOING PROJECTS</p>
+
+                    <div class="project-overview-body">
+                        <p class="text-center overview-body-text">6</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        </div>
         </div>
 
 
@@ -153,4 +149,4 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
     </body>
 
-    </html>
+</html>
