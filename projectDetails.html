@@ -4,182 +4,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Project Details</title>
     <link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/circular-progress.css'>
+
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const projectDetails = {
+            title: urlParams.get('title'),
+            budget: urlParams.get('budget'),
+            progress: urlParams.get('progress'),
+            manager: urlParams.get('manager'),
+            type: urlParams.get('type'),
+        } 
+    </script>
 </head>
 
 <body>
-
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Project Detials</title>
-    </head>
-
-    <body>
-
-
-        <nav class="navbar navbar-default navbar-home navbar-fixed-top">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <a class="navbar-brand nav-image" href="#">
-                        <img alt="Brand" src="images/stkstk.png " class="img-responsive" style="height: 30px;">
-                    </a>
-
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Home</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                aria-haspopup="true" aria-expanded="false">Eng <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Dutch</a></li>
-                                <li><a href="#">Spanish</a></li>
-                                <li><a href="#">French</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <img src="./images/water.jpg" alt="" class="profile-icon">
-                        </li>
-                    </ul>
-
-                    <form class="navbar-form navbar-right" action="/action_page.php">
-                        <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search">
-                          <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit">
-                              <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </form>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-
-
+    <nav class="navbar navbar-default navbar-home navbar-fixed-top">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-3 col-md-2 sidebar">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-                    <ul class="nav nav-sidebar">
-                        <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                        <li><a href="assignMembers.html">Team</a></li>
-                        <li><a href="taskDetails.html">Task</a></li>
-                        <li><a href="Board.html">Board</a></li>
-                        <li><a href="#">Attachment</a></li>
-                    </ul>
+                <a class="navbar-brand nav-image" href="#">
+                    <img alt="Brand" src="images/stkstk.png " class="img-responsive" style="height: 30px;">
+                </a>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">Eng <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Dutch</a></li>
+                            <li><a href="#">Spanish</a></li>
+                            <li><a href="#">French</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <img src="./images/water.jpg" alt="" class="profile-icon">
+                    </li>
+                </ul>
+
+                <form class="navbar-form navbar-right" action="/action_page.php">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+
+                <ul class="nav nav-sidebar">
+                    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+                    <li><a href="assignMembers.html">Team</a></li>
+                    <li><a href="taskDetails.html">Task</a></li>
+                    <li><a href="Board.html">Board</a></li>
+                    <li><a href="#">Attachment</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+                <div class="row">
+                    <h4 class="form-heading">Project Name:
+                        <script>document.write(projectDetails.title)</script>
+                    </h4>
+                    <h4>Project type:
+                        <script>document.write(projectDetails.type)</script>
+                    </h4>
+                    <h4>Manager:
+                        <script>document.write(projectDetails.manager ? projectDetails.manager : "N/A")</script>
+                    </h4>
                 </div>
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    
-                        <div class="row">
-                            <h4 class="form-heading">Project Name</h4>
-                            <h4>Manager: Chabdp</h4>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="project-overview-box">
-                                    <p class="project-overview-title">DAYS LEFT</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="project-overview-box">
+                            <p class="project-overview-title">DAYS LEFT</p>
 
-                                    <div class="project-overview-body">
-                                        <p class="text-center overview-body-text">8</p>
-                                    </div>
-                                </div>
+                            <div class="project-overview-body">
+                                <p class="text-center overview-body-text">8</p>
                             </div>
-                            <div class="col-md-6">
-                                <div class="project-overview-box">
-                                    <p class="project-overview-title">PROGRESS</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="project-overview-box">
+                            <p class="project-overview-title">PROGRESS</p>
 
-                                    <div class="project-overview-body">
-                                            <div class="progress" data-percentage="80">
-                                                <span class="progress-left">
-                                                    <span class="progress-bar"></span>
-                                                </span>
-                                                <span class="progress-right">
-                                                    <span class="progress-bar"></span>
-                                                </span>
-                                                <div class="progress-value">
-                                                    <div>
-                                                        80%<br>
-                                                        <span>completed</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                            <div class="project-overview-body">
+                                <div class="progress" data-percentage="80">
+                                    <span class="progress-left">
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                    <span class="progress-right">
+                                        <span class="progress-bar"></span>
+                                    </span>
+                                    <div class="progress-value">
+                                        <div>
+                                            <script>document.write(projectDetails.progress)</script>%<br>
+                                            <span>completed</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="project-overview-box">
-                                    <p class="project-overview-title">PROGRESS</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="project-overview-box">
+                            <p class="project-overview-title">BUDGET</p>
 
-                                    <div class="project-overview-body">
-                                            <div class="progress" data-percentage="120">
-                                                <span class="progress-left">
-                                                    <span class="progress-bar"></span>
-                                                </span>
-                                                <span class="progress-right">
-                                                    <span class="progress-bar"></span>
-                                                </span>
-                                                <div class="progress-value">
-                                                    <div>
-                                                        120%<br>
-                                                        <span>Used</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">Total Budget: $200,433</div>
-                                                <div class="col-md-6">Amount Used: $70,000</div>
-                                            </div>
-                                    </div>
+                            <div class="barprogress">
+                                <div class="progress-bar progress-bar-striped active progress-bar-warning" role="progressbar" aria-valuenow="60"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                    <span class="sr-only">60% Used </span>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="project-overview-box">
-                                    <p class="project-overview-title">OVER DUE TASKS</p>
-
-                                    <div class="project-overview-body">
-                                        <p class="text-center overview-body-text">4</p>
-                                    </div>
-                                </div>
+                            <div class="row">
+                                <div class="col-md-6">Total Budget: $200,433</div>
+                                <div class="col-md-6">Amount Used: $70,000</div>
                             </div>
-                            
                         </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="project-overview-box">
+                            <p class="project-overview-title">OVER DUE TASKS</p>
+
+                            <div class="project-overview-body">
+                                <p class="text-center overview-body-text">4</p>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
+
             </div>
         </div>
+    </div>
 
 
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
+    <script>
+        const progressBar = document.querySelector('.progress');
+        progressBar.dataset.columns = projectDetails.progress;
+    </script>
+</body>
 
-        <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    </body>
-
-    </html>
+</html>
