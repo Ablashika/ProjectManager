@@ -338,7 +338,8 @@
 
 .hero-bg {
   height: 100vh;
-  background: url("../images/drone_back.jfif") center no-repeat;
+  background: url("../images/drone1.jpeg") center no-repeat;
+  background-size:cover;
 }
 
 .btn .mdi {
