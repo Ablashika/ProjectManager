@@ -102,7 +102,7 @@
                             </tr>
                         </thead>
                         <tbody id="projectsTable">
-                            
+
 
 
 
@@ -148,12 +148,13 @@
 
     <script>
         var db = firebase.firestore();
+        let progress = Math.floor((Math.random() * 100) + 10);
 
-        function getProjects(){
+        function getProjects() {
             var projectsTable = document.getElementById('projectsTable');
             db.collection("projects").onSnapshot((querySnapshot) => {
                 projectsTable.innerHTML = '';
-                let num =0;
+                let num = 0;
                 querySnapshot.forEach((doc) => {
                     // console.log(`${doc.id} => ${doc.data().projectName}`);
                     let data = doc.data();
@@ -167,7 +168,7 @@
                                 <td>${data.dueDate}</td>
                                 <td>
                                     <button class="btn btn-warning">
-                                        <a href="projectDetails.html"><span class="mdi mdi-eye"></span></a>
+                                        <a href="projectDetails.html?title=${data.title}&budget=${data.budget}&progress=${progress}&manager=${data.projectManager}&type=${data.projectType}"><span class="mdi mdi-eye"></span></a>
                                     </button>
                                     <button class="btn btn-primary" data-toggle="modal" data-target="#myModal${num}"><span
                                             class="mdi mdi-lead-pencil"></span>
@@ -314,30 +315,30 @@
             });
         }
 
-        function editProject(event,id) {
+        function editProject(event, id) {
             console.log('gg');
-                event.preventDefault();
+            event.preventDefault();
 
-                db.collection('projects').doc(id)
-                    .update({
-                        title: event.target.title.value,
-                        dueDate: event.target.due_date.value,
-                        budget: event.target.budget.value,
-                        location: event.target.location.value,
-                        projectDescription: event.target.project_desc.value,
-                        projectType: event.target.proj_type.value,
-                        clientName: event.target.client_name.value,
-                        clientEmail: event.target.client_email.value,
-                        projectManager: event.target.proj_manager.value
-                    })
-                    .then(function (docRef) {
-                        // console.log('Document written with ID: ', docRef.id);
-                        window.location.href = window.location.href
-                    })
-                    .catch(function (error) {
-                        console.error('Error adding document: ', error);
-                    });
-            }
+            db.collection('projects').doc(id)
+                .update({
+                    title: event.target.title.value,
+                    dueDate: event.target.due_date.value,
+                    budget: event.target.budget.value,
+                    location: event.target.location.value,
+                    projectDescription: event.target.project_desc.value,
+                    projectType: event.target.proj_type.value,
+                    clientName: event.target.client_name.value,
+                    clientEmail: event.target.client_email.value,
+                    projectManager: event.target.proj_manager.value
+                })
+                .then(function (docRef) {
+                    // console.log('Document written with ID: ', docRef.id);
+                    window.location.href = window.location.href
+                })
+                .catch(function (error) {
+                    console.error('Error adding document: ', error);
+                });
+        }
 
         function deleteProject(id) {
             db.collection("projects").doc(id).delete().then(function () {
