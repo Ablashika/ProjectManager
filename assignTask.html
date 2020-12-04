@@ -2,259 +2,245 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const taskId = urlParams.get('id')
+  </script>
 </head>
 
 <body>
 
-    <!DOCTYPE html>
-    <html lang="en">
+  <nav class="navbar navbar-default navbar-home navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
+        <a class="navbar-brand nav-image" href="#">
+          <img alt="Brand" src="images/stkstk.png " class="img-responsive" style="height: 30px;">
+        </a>
 
-    <body>
+      </div>
 
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+              aria-expanded="false">Eng <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Dutch</a></li>
+              <li><a href="#">Spanish</a></li>
+              <li><a href="#">French</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+          <li>
+            <img src="./images/water.jpg" alt="" class="profile-icon">
+          </li>
+        </ul>
 
-        <nav class="navbar navbar-default navbar-home navbar-fixed-top">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <a class="navbar-brand nav-image" href="#">
-                        <img alt="Brand" src="images/stkstk.png " class="img-responsive" style="height: 30px;">
-                    </a>
-
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Home</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                aria-haspopup="true" aria-expanded="false">Eng <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Dutch</a></li>
-                                <li><a href="#">Spanish</a></li>
-                                <li><a href="#">French</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <img src="./images/water.jpg" alt="" class="profile-icon">
-                        </li>
-                    </ul>
-
-                    <form class="navbar-form navbar-right" action="/action_page.php">
-                        <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Search">
-                          <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit">
-                              <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </form>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-       
-        <div class="space">
-
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                  <form action="" class="">
-                    <label for="title" class="text-right ">TASK DESCRIPTION</label>
-                    <br>
-                    <textarea class="form-control" name="task_description" rows="4" cols="1"> </textarea>
-                </div>
-                <div class="col-md-4">
-
-               </div>
-                <div class="col-md-2">
-                   <div class="assignButton"><a href="assignMembers.html" type="button" class="btn btn-secondary btn-lg assign">ASSIGN TASK</a></div> 
-                   <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign" data-toggle="modal" data-target="#flightChecklist">FLIGHT CHECKLIST</button></div>
-                   <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign" data-toggle="modal" data-target="#riskAnalysis">RISK ANALYSIS</button></div>
-                   <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign" data-toggle="modal" data-target="#dueDate">DUE DATE</button></div>
-                   <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign" data-toggle="modal" data-target="#budget">BUDGET</button></div>
-
-                   <button class="btn btn-black" onclick="add(event)">Save</button>
-                </div>
+        <form class="navbar-form navbar-right" action="/action_page.php">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
             </div>
+          </div>
+        </form>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
-            <div class="modal fade" id="assignTask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Assign task</h4>
-                    </div>
-                    <div class="modal-body">
-                      
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+  <div class="space">
 
-              <div class="modal fade" id="flightChecklist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Flight checklist</h4>
-                    </div>
-                    <div class="modal-body">
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox" name="flight_che"> The weather is appropriate to fly the drone
-                        </label>
-                      </div>
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox" name="flight_che"> The site has been ispected and is okay for work
-                        </label>
-                      </div>
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox" name="flight_che"> The client has confirmed the time and availability
-                        </label>
-                      </div>
-                    </div> 
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+  </div>
 
-              <div class="modal fade" id="riskAnalysis" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Risk analysis</h4>
-                    </div>
-                    <div class="modal-body">
-                      <textarea class="form-control" name="risk_Ana" rows="4"> </textarea>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <form action="" class="" onsubmit="editTask(event)">
+          <label for="title" class="text-right ">TASK DESCRIPTION</label>
+          <br>
+          <textarea class="form-control" name="task_desc" rows="4" cols="1"> </textarea>
+      </div>
+      <div class="col-md-4">
 
-              <div class="modal fade" id="dueDate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Due date</h4>
-                    </div>
-                    <div class="modal-body">
-                      <input type="date" class="form-control" name="due_date">
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      </div>
+      <div class="col-md-2">
+        <div class="assignButton"><a href="assignMembers.html" type="button"
+            class="btn btn-secondary btn-lg assign">ASSIGN TASK</a></div>
+        <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign" data-toggle="modal"
+            data-target="#flightChecklist">FLIGHT CHECKLIST</button></div>
+        <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign" data-toggle="modal"
+            data-target="#riskAnalysis">RISK ANALYSIS</button></div>
+        <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign" data-toggle="modal"
+            data-target="#dueDate">DUE DATE</button></div>
+        <div class="assignButton"><button type="button" class="btn btn-secondary btn-lg assign" data-toggle="modal"
+            data-target="#budget">BUDGET</button></div>
 
-              <div class="modal fade" id="budget" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Budget</h4>
-                    </div>
-                    <div class="modal-body">
-                      <input type="number" name="budget" class="form-control">
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
+        <button class="btn btn-black" type="submit">Save</button>
+      </div>
+    </div>
+
+    <div class="modal fade" id="flightChecklist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Flight checklist</h4>
+          </div>
+          <div class="modal-body">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="flight_che1" value="The weather is appropriate to fly the drone"> The
+                weather is appropriate to fly the drone
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="flight_che2" value="The site has been ispected and is okay for work"> The
+                site has been ispected and is okay for work
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="flight_che3" value="The client has confirmed the time and availability">
+                The client has confirmed the time and availability
+              </label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <div class="modal fade" id="riskAnalysis" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Risk analysis</h4>
+          </div>
+          <div class="modal-body">
+            <textarea class="form-control" name="risk_Ana" rows="4"> </textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="dueDate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Due date</h4>
+          </div>
+          <div class="modal-body">
+            <input type="date" class="form-control" name="due_date">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="budget" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Budget</h4>
+          </div>
+          <div class="modal-body">
+            <input type="number" name="budget" class="form-control">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+  </div>
+
+  <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 
-          <!-- The core Firebase JS SDK is always required and must be listed first -->
-          <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
 
-          <!-- TODO: Add SDKs for Firebase products that you want to use
+  <!-- TODO: Add SDKs for Firebase products that you want to use
        https://firebase.google.com/docs/web/setup#available-libraries -->
-          <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
-  
-          <script>
-              // Your web app's Firebase configuration
-              var firebaseConfig = {
-                  apiKey: "AIzaSyCjFIJr2RMPKxf4mlD71hlZSg1KRPAmtvU",
-                  authDomain: "skt-project-manager.firebaseapp.com",
-                  databaseURL: "https://skt-project-manager.firebaseio.com",
-                  projectId: "skt-project-manager",
-                  storageBucket: "skt-project-manager.appspot.com",
-                  messagingSenderId: "687103923949",
-                  appId: "1:687103923949:web:5c4391825cf10c8f519ee4"
-              };
-              // Initialize Firebase
-              firebase.initializeApp(firebaseConfig);
-          </script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
 
-           <script>
-            var db = firebase.firestore();
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCjFIJr2RMPKxf4mlD71hlZSg1KRPAmtvU",
+      authDomain: "skt-project-manager.firebaseapp.com",
+      databaseURL: "https://skt-project-manager.firebaseio.com",
+      projectId: "skt-project-manager",
+      storageBucket: "skt-project-manager.appspot.com",
+      messagingSenderId: "687103923949",
+      appId: "1:687103923949:web:5c4391825cf10c8f519ee4"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 
-            function add(event) {
-                event.preventDefault();
+    var db = firebase.firestore();
 
-                db.collection('tasks')
-                    .add({
-                        taskDescription: event.target.task_desc.value,
-                        flightCheckList: event.target.flight_che.value,
-                        riskAnalysis: event.target.risk_Ana.value,
-                        dueDate: event.target.due_date.value,
-                        budget: event.target.budget.value,
-                    })
-                    .then(function (docRef) {
-                        console.log('Document written with ID: ', docRef.id);
-                        window.location = "index.html"
-                    })
-                    .catch(function (error) {
-                        console.error('Error adding document: ', error);
-                    });
-            }
+    function editTask(event) {
+      event.preventDefault();
 
-        </script>
-    </body>
+      db.collection('tasks').doc(taskId)
+        .update({
+          taskDescription: event.target.task_desc.value,
+          flightCheckList: { checklist1: event.target.flight_che1.value, checklist23: event.target.flight_che2.value,
+           checklist3: event.target.flight_che3.value },
+          riskAnalysis: event.target.risk_Ana.value,
+          dueDate: event.target.due_date.value,
+          budget: event.target.budget.value,
+        })
+        .then(function (docRef) {
+          console.log('Document updated');
+          window.location = "projectDetails.html"
+        })
+        .catch(function (error) {
+          console.error('Error adding document: ', error);
+        });
+    }
 
-    </html>
+  </script>
+</body>
+
+</html>
