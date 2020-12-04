@@ -133,14 +133,14 @@
                             <label for="title" class="text-right form-label">Project Type</label>
                         </div>
                         <div class="col-md-8">
-                            <select type="text" class="add-form-input" placeholder="optional" name="proj_type" id="proj_type">
+                            <select class="add-form-input" name="proj_type" id="proj_type">
                                 <option value="">-- Select --</option>
-                                <option value="">Crop spraying</option>
-                                <option value="">3D modelling</option>
-                                <option value="">Asset inspection</option>
-                                <option value="">Mapping and surveying</option>
-                                <option value="">Drone maintenance</option>
-                                <option value="">Crop monitoring</option>
+                                <option value="Crop spraying">Crop spraying</option>
+                                <option value="3D modelling">3D modelling</option>
+                                <option value="Asset inspection">Asset inspection</option>
+                                <option value="Mapping and surveying">Mapping and surveying</option>
+                                <option value="Drone maintenance">Drone maintenance</option>
+                                <option value="Crop monitoring">Crop monitoring</option>
                             </select>
                         </div>
                     </div>
@@ -217,9 +217,6 @@
 
             function add(event) {
                 event.preventDefault();
-                var e = document.getElementById("proj_type");
-                var value = e.options[e.selectedIndex].value;
-                var projType = e.options[e.selectedIndex].text;
 
                 db.collection('projects')
                     .add({
@@ -228,7 +225,7 @@
                         budget: event.target.budget.value,
                         location: event.target.location.value,
                         projectDescription: event.target.project_desc.value,
-                        projectType: projType,
+                        projectType: event.target.proj_type.value,
                         clientName: event.target.client_name.value,
                         clientEmail: event.target.client_email.value,
                         projectManager: event.target.proj_manager.value
