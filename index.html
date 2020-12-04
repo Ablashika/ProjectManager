@@ -101,25 +101,83 @@
                                 <th>ACTIONS</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="projectsTable">
+                            
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+
+
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCjFIJr2RMPKxf4mlD71hlZSg1KRPAmtvU",
+            authDomain: "skt-project-manager.firebaseapp.com",
+            databaseURL: "https://skt-project-manager.firebaseio.com",
+            projectId: "skt-project-manager",
+            storageBucket: "skt-project-manager.appspot.com",
+            messagingSenderId: "687103923949",
+            appId: "1:687103923949:web:5c4391825cf10c8f519ee4"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script>
+        var db = firebase.firestore();
+
+        function getProjects(){
+            var projectsTable = document.getElementById('projectsTable');
+            db.collection("projects").onSnapshot((querySnapshot) => {
+                projectsTable.innerHTML = '';
+                let num =0;
+                querySnapshot.forEach((doc) => {
+                    // console.log(`${doc.id} => ${doc.data().projectName}`);
+                    let data = doc.data();
+                    console.log(doc.id);
+                    console.log(data);
+                    let newRow = `
                             <tr>
-                                <td>LAND SURVEY</td>
-                                <td>CROP MONITORY</td>
-                                <td>$4567889</td>
-                                <td>30th DECEMBER</td>
+                                <td>${data.title}</td>
+                                <td>${data.projectType}</td>
+                                <td>${data.budget}</td>
+                                <td>${data.dueDate}</td>
                                 <td>
                                     <button class="btn btn-warning">
                                         <a href="projectDetails.html"><span class="mdi mdi-eye"></span></a>
                                     </button>
-                                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal${num}"><span
                                             class="mdi mdi-lead-pencil"></span>
                                     </button>
-                                    <button class="btn btn-danger">
+                                    <button class="btn btn-danger" onclick="deleteProject('${doc.id}')">
                                         <span class="mdi mdi-delete"></span>
                                     </button>
-                                </td>
-                                <!-- Modal -->
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                                    <div>
+                                        <!-- Modal -->
+                                <div class="modal fade" id="myModal${num++}" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -128,15 +186,15 @@
                                                     aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 <h4 class="modal-title" id="myModalLabel">Edit Project</h4>
                                             </div>
+                                         <form action="" class="form-content" onsubmit="editProject(event, '${doc.id}')">
                                             <div class="modal-body">
-                                                <form action="" class="form-content" onsubmit="add(event)">
                                                     <div class="row single-input">
                                                         <div class="col-md-4">
                                                             <label for="title"
                                                                 class="text-right form-label">Title</label>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <input type="text" class="add-form-input" name="title">
+                                                            <input type="text" value="${data.title}" class="add-form-input" name="title">
                                                         </div>
                                                     </div>
 
@@ -146,7 +204,7 @@
                                                                 Date</label>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <input type="date" class="add-form-input" name="due_date">
+                                                            <input type="date" value="${data.dueDate}" class="add-form-input" name="due_date">
                                                         </div>
                                                     </div>
 
@@ -156,7 +214,7 @@
                                                                 class="text-right form-label">Budget</label>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <input type="number" class="add-form-input" name="budget">
+                                                            <input type="number" value="${data.budget}" class="add-form-input" name="budget">
                                                         </div>
                                                     </div>
 
@@ -167,7 +225,7 @@
                                                         </div>
                                                         <div class="col-md-8">
                                                             <input type="text" class="add-form-input"
-                                                                placeholder="optional" name="location">
+                                                                placeholder="optional" value="${data.location}" name="location">
                                                         </div>
                                                     </div>
 
@@ -178,7 +236,7 @@
                                                         </div>
                                                         <div class="col-md-8">
                                                             <textarea class="add-form-textarea" rows="3"
-                                                                name="project_desc"> </textarea>
+                                                                name="project_desc"> ${data.projectDescription} </textarea>
                                                         </div>
                                                     </div>
 
@@ -191,12 +249,13 @@
                                                             <select type="text" class="add-form-input"
                                                                 placeholder="optional" name="proj_type" id="proj_type">
                                                                 <option value="">-- Select --</option>
-                                                                <option value="">Crop spraying</option>
-                                                                <option value="">3D modelling</option>
-                                                                <option value="">Asset inspection</option>
-                                                                <option value="">Mapping and surveying</option>
-                                                                <option value="">Drone maintenance</option>
-                                                                <option value="">Crop monitoring</option>
+                                                                <option value="${data.projectType}">${data.projectType}</option>
+                                                                <option value="Crop spraying">Crop spraying</option>
+                                                                <option value="3D modelling">3D modelling</option>
+                                                                <option value="Asset inspection">Asset inspection</option>
+                                                                <option value="Mapping and surveying">Mapping and surveying</option>
+                                                                <option value="Drone maintenance">Drone maintenance</option>
+                                                                <option value="Crop monitoring">Crop monitoring</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -238,46 +297,59 @@
                                                 <button type="button" class="btn btn-default"
                                                     data-dismiss="modal">Close</button>
                                                 <button type="submit" class="btn btn-primary">Save changes</button>
-
-                                                </form>
                                             </div>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
+                                    
+                                    </div>
+
+                                </td>
                             </tr>
-                            <tr>
-                                <td>LAND SURVEY</td>
-                                <td>Drone Maintenance</td>
-                                <td>$3456789</td>
-                                <td>30th DECEMBER 2020</td>
-                            </tr>
-                            <tr>
-                                <td>LAND SURVEY</td>
-                                <td>CROP MONITORY</td>
-                                <td>$3456789</td>
-                                <td>30th DECEMBER 2020</td>
-                            </tr>
-                            <tr>
-                                <td>LAND SURVEY</td>
-                                <td>CROP SPRAYING</td>
-                                <td>$3456789</td>
-                                <td>30th DECEMBER 2020</td>
-                            </tr>
+                            
+                    `
+                    projectsTable.innerHTML = projectsTable.innerHTML + newRow
+                });
+            });
+        }
 
+        function editProject(event,id) {
+            console.log('gg');
+                event.preventDefault();
 
+                db.collection('projects').doc(id)
+                    .update({
+                        title: event.target.title.value,
+                        dueDate: event.target.due_date.value,
+                        budget: event.target.budget.value,
+                        location: event.target.location.value,
+                        projectDescription: event.target.project_desc.value,
+                        projectType: event.target.proj_type.value,
+                        clientName: event.target.client_name.value,
+                        clientEmail: event.target.client_email.value,
+                        projectManager: event.target.proj_manager.value
+                    })
+                    .then(function (docRef) {
+                        // console.log('Document written with ID: ', docRef.id);
+                        window.location.href = window.location.href
+                    })
+                    .catch(function (error) {
+                        console.error('Error adding document: ', error);
+                    });
+            }
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+        function deleteProject(id) {
+            db.collection("projects").doc(id).delete().then(function () {
+                console.log("Document successfully deleted!");
+                // window.location.href  =  window.location.href 
+            }).catch(function (error) {
+                console.error("Error removing document: ", error);
+            });
+        }
+        getProjects()
 
-
-
-
-    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    </script>
 </body>
 
 </html>
